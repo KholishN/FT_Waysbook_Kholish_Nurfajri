@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,800;1,400&display=swap");
+.profCont {
+  min-height: 100vh;
+  background-image: url("../assets/bgDashboard-removebg.png");
+}
+
+.profWarp {
+  padding-left: 200px;
+  padding-right: 200px;
+  margin-top: 50px;
+}
+
+.profTitle {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.profTop {
+  width: 100%;
+  background-color: #ffd9d9;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 60px;
+  margin-bottom: 80px;
+}
+
+.profCard-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.profCard-left ul {
+  padding-left: 15px;
+}
+
+.profCard-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-icon {
+  margin-top: -10px;
+}
+
+.profile-icon li {
+  margin-top: 38px;
+}
+
+.profile-bio {
+  margin-top: 29px;
+  padding-left: 0px;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.profile-bio-template {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: #8a8c90;
+}
+
+.profCard-right img {
+  width: 226.67px;
+  height: 202px;
+  margin-top: 20px;
+}
+
+.profCard-right button {
+  width: 100%;
+  margin-top: 15px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #d60000;
+  color: white;
+  border-color: #d60000;
+}
+
+.profBottom {
+  height: 450px;
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 40px;
+}
+
+.card-list-book {
+  max-width: 200px;
+  height: 436px;
+}
+
+.card-list-book img {
+  width: 200px;
+  height: 270px;
+}
+
+.card-list-book h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.card-list-book p {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  color: #929292;
+  margin-top: 0px;
+}
+
+.card-list-book button {
+  width: 200px;
+  height: 40px;
+  border-radius: 1px;
+  background-color: #393939;
+  color: white;
+  margin-top: 12px;
+  border-color: #393939;
+}
+
+.modal-edit {
+  margin-top: 80px;
+  height: 700px !important;
+}
+
+.modal-select {
+  width: 98%;
+  height: 40px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.modal-content {
+  margin-top: 300px;
+}
+
+.modal-address {
+  width: 350px;
+  height: 100px;
+  resize: none;
+  background-color: #eeeeee;
+  border-radius: 10px;
+}
+
+.modal-photo {
+  background-color: white !important;
+  height: 30px !important;
+}
+
+.modalll label {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.lblpp {
+  font-weight: 500;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.contCompAdmin {
+  background-image: url("../assets/bgDashboard-removebg.png");
+  background-color: #f3f3f3;
+  min-height: 100vh;
+}
+
+.contCompAdmin h1 {
+  margin-left: 200px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Times New Roman", Times, serif;
+  margin-bottom: -15px;
+}
+
+.container {
+  display: flex;
+}
+.compLeft {
+  background-color: #dfdfdf;
+  width: 358px;
+  height: 400px;
+  flex-direction: row;
+  margin-left: 70px;
+  border-radius: 10px;
+  border: 1px solid #dfdfdf;
+  padding: 15px;
+  padding-top: 5px;
+}
+
+.card-user {
+  width: 100%;
+  height: 58.51px;
+  border-bottom: 1px solid #a7a5a5;
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+  text-align: center;
+}
+
+.card-user img {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+}
+
+.card-user p {
+  margin-top: 10px;
+  margin-left: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.compRight {
+  width: 803px;
+  height: 592px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: #dfdfdf;
+}
+
+.compRightCustomer {
+  width: 1113px;
+  height: 592px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: #dfdfdf;
+}
+
+.headerAdmin {
+  width: 100.1%;
+  height: 76px;
+  background-color: #c4c4c4;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid #c4c4c4;
+  display: flex;
+  padding: 15px;
+  padding-top: 11px;
+}
+
+.headerAdmin img {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+}
+
+.status-head {
+  margin-left: 20px;
+}
+
+.status-head p {
+  margin-bottom: 0px;
+}
+
+.nama {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.status-online {
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  color: #595959;
+}
+
+.dot-online {
+  width: 10px;
+  height: 10px;
+  background-color: #44b200;
+  border-radius: 100%;
+  margin-top: 4px;
+  margin-right: 7px;
+}
+
+.status-warp {
+  flex-direction: row;
+  display: flex;
+}
+
+.chat-warp {
+  width: 100%;
+  height: 460px;
+}
+.chat-input-warp {
+  width: 100%;
+  margin-top: 5px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.send-message {
+  width: 590px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #c4c4c4;
+  border: 1px solid #c4c4c4;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+
+.send-message-customer {
+  width: 1000px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #c4c4c4;
+  border: 1px solid #c4c4c4;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+
+.chat-input-warp button {
+  width: 67px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #8ad0d0;
+  margin-left: 10px;
+  border: 1px solid #8ad0d0;
+}
+
+.chat-input-warp button:active {
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.2);
+  border: 10px solid #85d8d8;
+}
+
+.chat-input-warp img {
+  width: 18px;
+  height: 18px;
+}
+
+.chat-me {
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  max-width: 400px;
+  margin-right: 20px;
+}
+
+.chat-me::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: -15px;
+  border-top: 15px solid transparent;
+  border-left: 20px solid white;
+  border-bottom: 15px solid transparent;
+}
+.chat-other {
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  max-width: 400px;
+}
+
+.chat-other::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -15px;
+  border-top: 15px solid transparent;
+  border-right: 20px solid white;
+  border-bottom: 15px solid transparent;
+}

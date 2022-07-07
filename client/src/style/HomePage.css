@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,800;1,400&display=swap");
+/* top */
+.top {
+  display: flex;
+  width: 100%;
+  height: 560px;
+  background-color: white;
+  text-align: center;
+  justify-content: center;
+  margin-top: -83px;
+  background-image: url("../assets/bgDashboard-removebg.png");
+}
+
+.top h1 {
+  width: 560px;
+  height: 116px;
+  justify-content: center;
+  align-items: center;
+  font-family: Vollkorn;
+  font-size: 33px;
+  font-weight: 400;
+  margin-top: 150px;
+}
+/* /top */
+
+/* middle */
+.middle {
+  width: 100%;
+  height: 345px;
+  flex-direction: row;
+  position: absolute;
+  margin-top: -220px;
+  padding-left: 30px;
+  display: flex;
+  overflow: auto;
+  column-gap: 30px;
+}
+
+.middle::-webkit-scrollbar {
+  display: none;
+}
+
+.cardSlide {
+  display: flex;
+  width: 504.29px;
+  height: 345.09px;
+  flex-direction: row;
+  object-fit: contain;
+}
+
+.middleLeft {
+  width: 236.22px;
+  height: 340px;
+  display: block;
+}
+
+.middleLeft img {
+  width: 236.22px;
+  height: 310px;
+  display: flex;
+}
+
+.middleRight {
+  width: 268.06px;
+  height: 290px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: white;
+}
+
+.titleBook {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 3px;
+}
+
+.auth {
+  font-family: "Nunito", sans-serif;
+  font-size: 14;
+  font-style: italic;
+  color: #929292;
+  margin: 0px;
+}
+
+.sinopsis {
+  font-family: "Nunito", sans-serif;
+  font-size: 14;
+  font-weight: 400;
+  color: black;
+}
+
+.priceBook {
+  font-family: "Nunito", sans-serif;
+  font-size: 18;
+  font-weight: 800;
+  color: #44b200;
+}
+
+.btnCard {
+  width: 100%;
+  height: 39.03px;
+  background-color: #393939;
+  border: 2px solid #393939;
+  border-radius: 1px;
+  font-size: 14px;
+  color: white;
+}
+
+/* /middle */
+
+/* bottom */
+
+.bottom {
+  width: 100%;
+  background-color: #f3f3f3;
+  min-height: 600px;
+  padding-top: 120px;
+}
+
+.warpBottom {
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+.warpList {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 40px;
+  row-gap: 50px;
+  margin-top: 50px;
+}
+
+.listBook {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.cardList {
+  width: 200px;
+  height: 430px;
+}
+
+.cardList img {
+  width: 200px;
+  height: 270px;
+}
+/* /bottom */

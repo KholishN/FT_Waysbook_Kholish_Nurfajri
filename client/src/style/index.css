@@ -1,0 +1,11 @@
+* {
+  list-style: none;
+}
+.bg-body {
+  background-color: #f3f3f3;
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  /* background-image: url(../assets/bgDashboard-removebg.png); */
+}

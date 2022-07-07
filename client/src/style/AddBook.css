@@ -1,0 +1,71 @@
+.addBookCont {
+  background-image: url("../assets/bgDashboard-removebg.png");
+  background-color: #f3f3f3;
+  min-height: 100vh;
+}
+
+.container {
+  margin-top: 20px;
+  min-height: 110vh;
+}
+
+.add-book-title {
+  margin-bottom: 10px !important;
+  font-size: 36px !important;
+}
+
+.previewImg {
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.btnfile {
+  width: 20 0px;
+  background-color: #e9e9e9;
+  height: 50px;
+  border: 1px solid #bcbcbc;
+  color: black;
+  margin-bottom: 30px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btnfile:hover {
+  cursor: pointer;
+}
+
+.formWarp {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.form-control {
+  background-color: #e9e9e9 !important;
+  border: 1px solid #bcbcbc !important;
+  color: #333333 !important;
+}
+
+.warpButton-book {
+  width: 100%;
+  text-align: end;
+}
+
+.warpButton-book button {
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: #393939;
+  border: 1px solid #393939;
+  border-radius: 1px;
+}
+
+.btnBook {
+  margin-left: 10px;
+  width: 20px;
+  font-weight: 800;
+  color: white;
+}

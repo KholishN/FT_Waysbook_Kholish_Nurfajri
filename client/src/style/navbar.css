@@ -1,0 +1,77 @@
+/* navbar */
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 20px;
+}
+
+.navLeft {
+  display: flex;
+}
+
+.navLeft img {
+  width: 111px;
+  height: 65px;
+  margin-top: 15px;
+}
+
+.navRight {
+  display: flex;
+  column-gap: 20px;
+}
+
+.btnLogin {
+  width: 100px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid #393939;
+  border-radius: 1px;
+  top: 55px;
+}
+
+.btnRegister {
+  width: 100px;
+  height: 30px;
+  background-color: #393939;
+  border: 2px solid #393939;
+  border-radius: 1px;
+  color: white;
+  top: 55px;
+}
+/* /navbar */
+
+/* navbar Customer */
+.cart {
+  width: 25px;
+  height: 25px;
+  margin-top: 25px;
+  margin-right: -10px;
+  list-style: none;
+}
+
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 30px;
+  border: 10px solid;
+  border-color: transparent transparent #fff transparent;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+.notification .badge {
+  position: absolute;
+  top: 33px;
+  right: 140px;
+  padding: 2px 5px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+/* /navbar Customer */

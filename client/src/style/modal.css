@@ -1,0 +1,70 @@
+/* auth */
+body.active-modal {
+  overflow: hidden;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+.modal-content {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #fff;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 416px;
+  padding-top: 20px;
+}
+
+.modal-contentt h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: 36;
+  margin-bottom: 20px;
+}
+
+.modal-contentt input {
+  width: 350px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #eeeeee;
+  color: black;
+  border-color: #bcbcbc;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.modal-contentt button {
+  width: 350px;
+  height: 50px;
+  border-radius: 1px;
+  background-color: #393939;
+  border-color: #393939;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* .close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+} */
+/* /auth */

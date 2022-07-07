@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,800;1,400&display=swap");
+.cont {
+  background-color: #f3f3f3;
+  background-image: url("../assets/bgDashboard-removebg.png");
+  min-height: 100vh;
+}
+
+.topdetail {
+  min-height: 50vh;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.topleft {
+  width: 30%;
+}
+
+.topleft img {
+  width: 350px;
+  height: 450px;
+  justify-content: flex-end;
+}
+
+.topright {
+  width: 30%;
+}
+
+.topright ul {
+  padding-left: 0%;
+}
+
+.title-detail {
+  font-family: "Times New Roman", Times, serif;
+  width: 100%;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.author-detail {
+  font-size: 18px;
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
+  color: #929292;
+  margin-bottom: 30px;
+}
+
+.sub-title-detail {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.sub-title-red-detail {
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #d60000;
+}
+
+.sub-detail {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  color: #929292;
+  margin-bottom: 25px;
+}
+
+.bottomdetail {
+  min-height: 50vh;
+  justify-content: center;
+}
+
+.bottom-center-detail {
+  margin: auto;
+  justify-content: center;
+  width: 820px;
+  margin-top: 90px;
+}
+
+.about-book {
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.about-desc-book {
+  text-align: justify;
+}
+
+.btnCart {
+  width: 134px;
+  height: 40px;
+  background-color: #393939;
+  border: 1px solid #393939;
+  color: white;
+  border-radius: 1px;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.contBtn {
+  text-align: end;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 820px;
+  margin-left: 250px;
+  margin-top: 50px;
+  height: 100px;
+}
