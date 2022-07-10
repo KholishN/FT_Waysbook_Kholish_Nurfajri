@@ -120,6 +120,15 @@
   margin-right: 7px;
 }
 
+.dot-offline {
+  width: 10px;
+  height: 10px;
+  background-color: #e02a2a;
+  border-radius: 100%;
+  margin-top: 4px;
+  margin-right: 7px;
+}
+
 .status-warp {
   flex-direction: row;
   display: flex;

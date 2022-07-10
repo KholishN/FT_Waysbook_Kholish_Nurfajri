@@ -21,7 +21,6 @@ function Cart() {
     API.get("/carts")
       .then((res) => {
         setCart(res.data.getCart);
-        console.log(res);
       })
       .catch((err) => console.log("error", err));
   }, [show]);
@@ -35,7 +34,7 @@ function Cart() {
     //change this to the script source you want to load, for example this is snap.js sandbox env
     const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
     //change this according to your client-key
-    const myMidtransClientKey = "SB-Mid-client-ts_1Jrk1IUCqKMqQ";
+    const myMidtransClientKey = "SB-Mid-client-_02Mwu3kTiqy1vjO";
 
     let scriptTag = document.createElement("script");
     scriptTag.src = midtransScriptUrl;
@@ -54,7 +53,6 @@ function Cart() {
   const handleBuy = async () => {
     await API.post("/transaction")
       .then((res) => {
-        console.log(res);
         // handleShows();
 
         const token = res.data.payment.token;

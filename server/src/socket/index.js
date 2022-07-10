@@ -17,7 +17,7 @@ const socketIo = (io) => {
     console.log("client connect:", socket.id);
 
     const token = socket.handshake.auth.token;
-    const tokenKey = process.env.SECRET_KEY;
+    const tokenKey = process.env.TOKEN_KEY;
     const userId = jwt.verify(token, tokenKey).id;
 
     connectedUser[userId] = socket.id;

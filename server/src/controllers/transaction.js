@@ -28,6 +28,15 @@ exports.addTransaction = async (req, res) => {
       ],
     });
 
+    let Buyer = await user.findOne({
+      where: {
+        id : dataUser.id
+      },
+      attributes: {
+        exclude: ["createdAt", "updatedAt","password","role"],
+      },
+    })
+
     if (listCart.length == 0) {
       return res.send({
         message: "Cart is Empty!",
@@ -51,8 +60,8 @@ exports.addTransaction = async (req, res) => {
       .reduce((a, b) => a + b, 0);
 
     let data = {
-      nameBuyer: dataUser.name,
-      products: listProducts.join(", "),
+      buyer: Buyer.name,
+      product: listProducts.join(", "),
       total: prices,
       status: "pending",
       idUser: dataUser.id,
@@ -202,43 +211,23 @@ const updateTransaction = async (status, transactionId) => {
   );
 };
 
-const updateProduct = async (par1) => {
+const updateProduct = async (orderId) => {
   try {
     let dataUser = await transaction.findOne({
       raw: true,
       where: {
-        id: par1,
+        id: orderId,
       },
     });
 
-    let listCart = await cart.findAll({
-      where: {
-        idUser: dataUser.idUser,
-      },
-      include: [
-        {
-          model: book,
-          as: "book",
-          attributes: {
-            exclude: ["createdAt", "updatedAt"],
-          },
-        },
-      ],
-    });
 
     //Kalau Midtrans sudah Jadi pindahkan ke Notif sampai Cart Destroy
-    let purBookData = await listCart.map((item) => {
-      return purchasedBook.create({
-        idUser: dataUser.idUser,
-        idBook: item.book.id,
-      });
-    });
 
-    await cart.destroy({
-      where: {
-        idUser: dataUser.idUser,
-      },
-    });
+    // await cart.destroy({
+    //   where: {
+    //     idUser: dataUser.idUser,
+    //   },
+    // });
   } catch (error) {
     console.log(error);
   }
@@ -247,7 +236,7 @@ const updateProduct = async (par1) => {
 const sendEmail = async (status, transactionId) => {
   // Config service and email account
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    service: "Gmail",
     auth: {
       user: process.env.SYSTEM_EMAIL,
       pass: process.env.SYSTEM_PASSWORD,
@@ -307,6 +296,8 @@ const sendEmail = async (status, transactionId) => {
 
   // Send an email if there is a change in the transaction status
   if (data.status != status) {
+    console.log(transporter)
+
     transporter.sendMail(mailOptions, (err, info) => {
       if (err) throw err;
       console.log("Email sent: " + info.response);
