@@ -11,8 +11,8 @@ function ModalEdit() {
   const [profile, setProfile] = useState({
     gender: "",
     phone: "",
-    address: "",
     avatar: "",
+    address: "",
   });
 
   const handleClose = () => setShow(false);
@@ -48,18 +48,27 @@ function ModalEdit() {
       },
     };
 
-    await API.patch("/profile", formData, config);
+    const response = await API.patch("/profile", formData, config);
+    console.log(response);
+
+    setPreview(null);
     handleClose();
     navigate("/");
   };
+
   return (
     <div>
       <button onClick={handleShow}>Edit Profile</button>
       <Modal show={show} onHide={handleClose} className="modal-edit">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="modalll">
             <label htmlFor="gender">Gender</label>
-            <select name="gender" id="gender" className="modal-select">
+            <select
+              name="gender"
+              id="gender"
+              className="modal-select"
+              onChange={handleChange}
+            >
               <option value="" hidden>
                 Gender
               </option>
@@ -68,17 +77,38 @@ function ModalEdit() {
             </select>
 
             <label htmlFor="phonenmr">Phone Number</label>
-            <input type="number" id="phonenmr" />
+            <input
+              type="number"
+              className="phonenmr"
+              name="phone"
+              id="phonenmr"
+              onChange={handleChange}
+            />
 
             <label htmlFor="address">Address</label>
-            <textarea className="modal-address" id="address"></textarea>
+            <textarea
+              className="modal-address"
+              id="address"
+              name="address"
+              onChange={handleChange}
+            />
           </div>
           <div>
-            <label htmlFor="pp" className="lblpp">
-              {" "}
-              Photo Profile
+            <label className="lblpp">Photo Profile</label>
+            <label className="ppInput" htmlFor="pp">
+              Add Avatar
             </label>
-            <input type="file" className="modal-photo" id="pp" />
+            <input
+              type="file"
+              className="modal-photo"
+              id="pp"
+              name="avatar"
+              onChange={handleChange}
+              hidden
+            />
+            <div className="mt-2">
+              <img src={preview} alt="" className="previewImgProfile" />
+            </div>
             <div>
               <img
                 src={checked}
@@ -87,7 +117,11 @@ function ModalEdit() {
                 hidden
               />
             </div>
-            <button className="btn btn-dark w-100 my-3" onClick={handleClose}>
+            <button
+              type="submit"
+              className="btn mt-4 btn-dark w-100 my-3"
+              onClick={handleClose}
+            >
               Submit
             </button>
           </div>

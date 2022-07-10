@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 
-function ModalTransaction() {
+function ModalTransaction({ handleBuy }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <div>
-      <button className="btnPay" onClick={handleShow}>
+      <button className="btnPay" onClick={handleBuy}>
         Pay
       </button>
       <Modal show={show} onHide={handleClose} className="modal-edit">

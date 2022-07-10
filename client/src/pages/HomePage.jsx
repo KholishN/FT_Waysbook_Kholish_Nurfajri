@@ -1,23 +1,35 @@
-import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { API } from "../config/api";
+import { useQuery } from "react-query";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../context/UserContext";
 
 import "swiper/css";
 import "swiper/css/free-mode";
 import "../style/HomePage.css";
 
-import Navbar from "../components/navbar/navbar";
+import Navbar from "../components/navbar/Navbar";
 import CardSlider from "../components/homePage/CardSlider";
 import CardList from "../components/homePage/CardList";
 
-import Cover1 from "../assets/coverbook1.jpg";
-import Cover2 from "../assets/cover2.jpg";
-
 function HomePage() {
-  // modal
+  const [state, dispatch] = useContext(UserContext);
+
+  let { data: books } = useQuery("bookssChace", async () => {
+    const response = await API.get("/books");
+    return response.data.data;
+  });
+
+  let { data: promoBooks } = useQuery("PromoBooksChace", async () => {
+    const response = await API.get("/promo-books");
+    return response.data.data.promoBooks;
+  });
+
   return (
     <div>
       <Navbar />
-      <div className="top">
+      <div className="top a">
         <h1>
           With us, you can shop online & help save your high street at the same
           time
@@ -32,138 +44,20 @@ function HomePage() {
         spaceBetween={20}
       >
         <SwiperSlide>
-          <CardSlider
-            data={{
-              imgSrc: Cover1,
-              bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-              author: "Destashya Wdp",
-              sinopsis:
-                "Kisah Angkasa dan 56 hari terinspirasi dari salah satu member dari boyband Korea Treasure.",
-              bookPrice: "59.000",
-            }}
-          />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <CardSlider
-            data={{
-              imgSrc: Cover2,
-              bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-              author: "Destashya Wdp",
-              sinopsis:
-                "Kisah Angkasa dan 56 hari terinspirasi dari salah satu member dari boyband Korea Treasure.",
-              bookPrice: "59.000",
-            }}
-          />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <CardSlider
-            data={{
-              imgSrc: Cover1,
-              bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-              author: "Destashya Wdp",
-              sinopsis:
-                "Kisah Angkasa dan 56 hari terinspirasi dari salah satu member dari boyband Korea Treasure.",
-              bookPrice: "59.000",
-            }}
-          />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <CardSlider
-            data={{
-              imgSrc: Cover1,
-              bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-              author: "Destashya Wdp",
-              sinopsis:
-                "Kisah Angkasa dan 56 hari terinspirasi dari salah satu member dari boyband Korea Treasure.",
-              bookPrice: "59.000",
-            }}
-          />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <CardSlider
-            data={{
-              imgSrc: Cover1,
-              bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-              author: "Destashya Wdp",
-              sinopsis:
-                "Kisah Angkasa dan 56 hari terinspirasi dari salah satu member dari boyband Korea Treasure.",
-              bookPrice: "59.000",
-            }}
-          />
+          <div>
+            {promoBooks?.map((item, index) => (
+              <CardSlider item={item} key={index} state={state} />
+            ))}
+          </div>
         </SwiperSlide>
       </Swiper>
       <div className="bottom">
         <div className="warpBottom">
           <h1 className="listBook">List Book</h1>
           <div className="warpList">
-            <CardList
-              data={{
-                imgSrc: Cover1,
-                bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-                author: "Destashya Wdp",
-                bookPrice: "59.000",
-              }}
-            />
-            <CardList
-              data={{
-                imgSrc: Cover1,
-                bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-                author: "Destashya Wdp",
-                bookPrice: "59.000",
-              }}
-            />
-            <CardList
-              data={{
-                imgSrc: Cover1,
-                bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-                author: "Destashya Wdp",
-                bookPrice: "59.000",
-              }}
-            />
-            <CardList
-              data={{
-                imgSrc: Cover1,
-                bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-                author: "Destashya Wdp",
-                bookPrice: "59.000",
-              }}
-            />
-            <CardList
-              data={{
-                imgSrc: Cover1,
-                bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-                author: "Destashya Wdp",
-                bookPrice: "59.000",
-              }}
-            />
-            <CardList
-              data={{
-                imgSrc: Cover1,
-                bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-                author: "Destashya Wdp",
-                bookPrice: "59.000",
-              }}
-            />
-            <CardList
-              data={{
-                imgSrc: Cover1,
-                bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-                author: "Destashya Wdp",
-                bookPrice: "59.000",
-              }}
-            />
-            <CardList
-              data={{
-                imgSrc: Cover1,
-                bookTitle: "56 Hari: Perjalanan Kisah Cinta",
-                author: "Destashya Wdp",
-                bookPrice: "59.000",
-              }}
-            />
+            {books?.map((item, index) => (
+              <CardList item={item} key={index} state={state} />
+            ))}
           </div>
         </div>
       </div>

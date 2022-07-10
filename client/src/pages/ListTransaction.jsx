@@ -1,12 +1,12 @@
 import React from "react";
-import NavbarAdmin from "../components/navbar/navbarAdmin";
+import Navbar from "../components/navbar/Navbar";
 import "../style/ListTransaction.css";
 
 function ListTransaction() {
   return (
-    <div>
-      <NavbarAdmin />
-      <div className="container">
+    <div className="ltCont">
+      <Navbar />
+      <div className="containerList">
         <h1>Incoming Transaction</h1>
         <div>
           <table className="tabble">

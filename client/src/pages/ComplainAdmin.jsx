@@ -1,7 +1,7 @@
 import React from "react";
 
 import "../style/Complain.css";
-import NavbarAdmin from "../components/navbar/navbarAdmin";
+import Navbar from "../components/navbar/Navbar";
 
 import User from "../assets/default-photo.png";
 import Send from "../assets/send.png";
@@ -9,7 +9,7 @@ import Send from "../assets/send.png";
 function ComplainAdmin() {
   return (
     <div className="contCompAdmin">
-      <NavbarAdmin />
+      <Navbar />
       <h1>Customer Complain</h1>
       <div className="container">
         <div className="compLeft">

@@ -1,7 +1,14 @@
 import React from "react";
 import ModalTransaction from "./ModalTransaction";
 
-function Subtotal() {
+function Subtotal({ carts, handleBuy }) {
+  let resultQty = carts.reduce((a, b) => {
+    return a + b.qty;
+  }, 0);
+
+  let resultPrice = carts.reduce((a, b) => {
+    return a + b.total;
+  }, 0);
   return (
     <div className="cartRight">
       <div className="garisAtas"></div>
@@ -11,8 +18,8 @@ function Subtotal() {
           <p>Qty</p>
         </div>
         <div className="cartLeft-right">
-          <p>Rp.59.000</p>
-          <p>2</p>
+          <p>{resultPrice}</p>
+          <p>{resultQty}</p>
         </div>
       </div>
       <div className="garisBawahh"></div>
@@ -21,10 +28,10 @@ function Subtotal() {
           <p>Total</p>
         </div>
         <div className="cartRight-right">
-          <p>Rp.59.000</p>
+          <p className="totalPrice">{resultPrice}</p>
         </div>
       </div>
-      <ModalTransaction />
+      <ModalTransaction handleBuy={handleBuy} />
     </div>
   );
 }

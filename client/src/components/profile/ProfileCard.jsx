@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { API } from "../../config/api";
+import { UserContext } from "../../context/UserContext";
+import { useQuery } from "react-query";
 
 import Mail from "../../assets/mail.png";
 import Gender from "../../assets/gender.png";
@@ -10,6 +13,16 @@ import Photo from "../../assets/default-photo.png";
 import ModalEdit from "./ModalEdit";
 
 function ProfileCard() {
+  const [state] = useContext(UserContext);
+
+  let { data } = useQuery("bookChace", async () => {
+    const response = await API.get("/profile");
+    console.log(response.data.data);
+    return response.data;
+  });
+
+  // console.log(data.data);
+
   return (
     <div className="profTop">
       <div className="profCard-left">
@@ -28,18 +41,27 @@ function ProfileCard() {
           </li>
         </ul>
         <ul>
-          <li className="profile-bio">Kholish Nurfajri</li>
+          <li className="profile-bio">{state?.user.email}</li>
           <li className="profile-bio-template">Email</li>
-          <li className="profile-bio">Mele</li>
+          <li className="profile-bio">
+            {data?.data.gender === null ? " - " : data?.data.data?.gender}
+          </li>
           <li className="profile-bio-template">Gender</li>
-          <li className="profile-bio">0812-1212-3434</li>
+          <li className="profile-bio">
+            {data?.data.phone === null ? " - " : data?.data.data?.phone}
+          </li>
           <li className="profile-bio-template">Mobile Phone</li>
-          <li className="profile-bio">Indonesia</li>
+          <li className="profile-bio">
+            {data?.data.address === null ? " - " : data?.data.data?.address}
+          </li>
           <li className="profile-bio-template">Address</li>
         </ul>
       </div>
       <div className="profCard-right">
-        <img src={Photo} alt="photoo" />
+        <img
+          src={data?.data.avatar === null ? Photo : data?.data?.avatar}
+          alt="photoo"
+        />
         <ModalEdit />
       </div>
     </div>

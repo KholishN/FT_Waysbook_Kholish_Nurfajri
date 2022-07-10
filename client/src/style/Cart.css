@@ -6,17 +6,19 @@
 }
 
 .warp {
+  min-height: 100vh;
   padding-left: 200px;
   padding-right: 200px;
 }
 .cart-contain {
+  min-height: 100vh;
   width: 100%;
   flex-direction: row;
   display: flex;
 }
 .cartLeft {
   background-color: transparent;
-  height: 500px;
+  min-height: 500px;
   width: 70%;
 }
 
@@ -40,6 +42,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  margin-bottom: 50px;
 }
 
 .cardCartLeft img {
@@ -55,20 +58,20 @@
 }
 
 .cardCartMiddle {
-  width: 520px;
+  width: 480px;
   padding-left: 30px;
   padding-top: 5px;
 }
 
 .cardCartMiddle h1 {
   font-family: "Times New Roman", Times, serif;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
 .cartAuth {
-  font-size: 14px;
+  font-size: 16px;
   font-style: italic;
   color: #929292;
   font-family: "Nunito", sans-serif;
@@ -76,7 +79,7 @@
 }
 
 .cartPrice {
-  font-size: 14px;
+  font-size: 18px;
   font-family: "Nunito", sans-serif;
   font-weight: 800;
   color: #44b200;
@@ -110,7 +113,7 @@
 }
 
 .cartRight-right p {
-  font-size: 14px;
+  font-size: 24px;
   font-family: "Nunito", sans-serif;
 }
 
@@ -120,14 +123,13 @@
 }
 
 .cartRight-left p {
-  font-size: 14px;
+  font-size: 18px;
   font-family: "Nunito", sans-serif;
   color: #44b200;
   font-weight: 800;
 }
 
 .cartRight-right p {
-  font-size: 14px;
   font-family: "Nunito", sans-serif;
   color: #44b200;
   font-weight: 800;
@@ -148,4 +150,21 @@
 }
 .thank-you p {
   margin-bottom: 0px;
+}
+
+.totalPrice {
+  font-size: 18px !important;
+}
+
+.cardCartRight img:hover {
+  cursor: pointer;
+}
+
+.cardCartRight img:active {
+  width: 25px;
+  height: 25px;
+}
+
+.cardCartRigh {
+  margin-left: -50px !important;
 }

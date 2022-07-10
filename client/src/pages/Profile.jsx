@@ -1,14 +1,14 @@
 import React from "react";
 import "../style/Profile.css";
 
-import NavbarCustomer from "../components/navbar/NavbarCustomer";
+import Navbar from "../components/navbar/Navbar";
 import ProfileCard from "../components/profile/ProfileCard";
 import ProfileBook from "../components/profile/ProfileBook";
 
 function Profile() {
   return (
     <div className="profCont">
-      <NavbarCustomer />
+      <Navbar />
       <div className="profWarp">
         <h1 className="profTitle">Profile</h1>
         <ProfileCard />

@@ -5,11 +5,13 @@
   min-height: 100vh;
 }
 
-.container {
+.containerList {
   margin-top: 60px;
+  padding-left: 200px;
+  padding-right: 200px;
 }
 
-.container h1 {
+.containerList h1 {
   font-size: 24px;
   font-family: "Times New Roman", Times, serif;
   font-weight: 700;
@@ -27,25 +29,29 @@ td {
   height: 73px;
 }
 
-tr:nth-child(even) {
-  background-color: #f1f1f1;
-}
-
-thead {
-  background-color: #f1f1f1;
+tr:nth-child(odd) {
+  background-color: #fff;
 }
 
 th {
+  background-color: #f1f1f1 !important;
+}
+
+thead {
   color: #ff0000;
   font-size: 18px;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
+  border-bottom: 3px solid #e5e5e5 !important;
 }
 
 td {
   font-size: 16px;
   font-weight: 400;
   font-family: "Roboto", sans-serif;
+
+  border-top: 3px solid #e5e5e5 !important;
+  border-bottom: 3px solid #e5e5e5 !important;
 }
 
 .success {
