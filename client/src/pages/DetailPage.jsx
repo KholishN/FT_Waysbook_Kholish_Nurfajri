@@ -20,17 +20,18 @@ function DetailPage() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  let { data } = useQuery("bookChace", async () => {
+  let { data: book } = useQuery("bookChace", async () => {
     const response = await API.get("/book/" + id);
     return response.data.data;
   });
+  console.log(book);
 
   let { data: purchased } = useQuery("purchasedChace", async () => {
     const response = await API.get("/purchased/" + id);
     return response.data.purBook;
   });
 
-  const [state, dispatch] = useContext(UserContext);
+  const [state] = useContext(UserContext);
 
   const handleCart = async (id) => {
     try {
@@ -40,9 +41,8 @@ function DetailPage() {
             "Content-Type": "application/json",
           },
         };
-        const response = await API.post("/cart", { idProduct: id }, config);
+        await API.post("/cart", { idProduct: id }, config);
 
-        console.log(response);
         handleShow();
       }
     } catch (error) {}
@@ -53,32 +53,32 @@ function DetailPage() {
       <Navbar />
       <div className="topdetail">
         <div className="topleft">
-          <img src={data?.bookImg} alt="cover" />
+          <img src={book?.bookImg} alt="cover" />
         </div>
         <div className="topright">
           <ul>
-            <li className="title-detail">{data?.title}</li>
-            <li className="author-detail">By : {data?.author}</li>
+            <li className="title-detail">{book?.title}</li>
+            <li className="author-detail">By : {book?.author}</li>
             <li className="sub-title-detail">Publication Date</li>
-            <li className="sub-detail">{data?.year}</li>
+            <li className="sub-detail">{book?.year}</li>
             <li className="sub-title-detail">Pages</li>
-            <li className="sub-detail">{data?.pages}</li>
+            <li className="sub-detail">{book?.pages}</li>
             <li className="sub-title-red-detail">ISBN</li>
-            <li className="sub-detail">{data?.ISBN}</li>
+            <li className="sub-detail">{book?.ISBN}</li>
             <li className="sub-title-detail">Price</li>
-            <li className="sub-price">{Rupiah.convert(data?.price)}</li>
+            <li className="sub-price">{Rupiah.convert(book?.price)}</li>
           </ul>
         </div>
       </div>
       <div className="bottom-detail">
         <div className="bottom-center-detail">
           <h1 className="about-book">About This Book</h1>
-          <p className="about-desc-book">{data?.desc}</p>
+          <p className="about-desc-book">{book?.desc}</p>
         </div>
       </div>
       <div className="contBtn">
         {purchased === null ? (
-          <button className="btnCart" onClick={() => handleCart(data.id)}>
+          <button className="btnCart" onClick={() => handleCart(book.id)}>
             Submit{" "}
             <img
               src={Cart}
@@ -87,7 +87,7 @@ function DetailPage() {
             />
           </button>
         ) : (
-          <a href={data.bookPdf} className="aCart">
+          <a href={book?.bookPdf} className="aCart">
             Download{" "}
           </a>
         )}

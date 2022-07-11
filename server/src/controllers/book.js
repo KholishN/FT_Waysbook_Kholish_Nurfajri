@@ -6,10 +6,7 @@ exports.promoBooks = async (req, res) => {
     let data = await book.findAll({
       where: {
         price: {
-          [Op.lte]: 55000,
-        },
-        attributes: {
-          exclude: ["createdAt", "updatedAt"],
+          [Op.lte]: 50000,
         },
       },
     });
@@ -41,6 +38,11 @@ exports.promoBooks = async (req, res) => {
 exports.getBooks = async (req, res) => {
   try {
     let data = await book.findAll({
+      where: {
+        price: {
+          [Op.gt]: 50000,
+        },
+      },
       attributes: {
         exclude: ["createdAt", "updatedAt"],
       },
