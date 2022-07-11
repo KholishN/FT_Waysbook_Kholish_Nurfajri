@@ -157,7 +157,7 @@ function Complain() {
                       item.idSender === state.user.id ? "chat-me" : "chat-other"
                     }
                   >
-                    <p>{item.message}</p>
+                    <div className="textt">{item.message}</div>
                   </div>
                 </div>
               </div>

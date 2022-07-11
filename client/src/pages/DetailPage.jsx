@@ -7,6 +7,7 @@ import { UserContext } from "../context/UserContext";
 import "../style/DetailPage.css";
 
 import Navbar from "../components/navbar/Navbar";
+import Rupiah from "rupiah-format";
 
 import Cover1 from "../assets/coverbook1.jpg";
 import Cart from "../assets/btn-cart.png";
@@ -21,8 +22,12 @@ function DetailPage() {
 
   let { data } = useQuery("bookChace", async () => {
     const response = await API.get("/book/" + id);
-    console.log(response.data.data);
     return response.data.data;
+  });
+
+  let { data: purchased } = useQuery("purchasedChace", async () => {
+    const response = await API.get("/purchased/" + id);
+    return response.data.purBook;
   });
 
   const [state, dispatch] = useContext(UserContext);
@@ -61,7 +66,7 @@ function DetailPage() {
             <li className="sub-title-red-detail">ISBN</li>
             <li className="sub-detail">{data?.ISBN}</li>
             <li className="sub-title-detail">Price</li>
-            <li className="sub-price">Rp.{data?.price}</li>
+            <li className="sub-price">{Rupiah.convert(data?.price)}</li>
           </ul>
         </div>
       </div>
@@ -72,14 +77,20 @@ function DetailPage() {
         </div>
       </div>
       <div className="contBtn">
-        <button className="btnCart" onClick={() => handleCart(data.id)}>
-          Submit{" "}
-          <img
-            src={Cart}
-            alt="Cart "
-            style={{ width: "20px", marginLeft: "10px" }}
-          />
-        </button>
+        {purchased === null ? (
+          <button className="btnCart" onClick={() => handleCart(data.id)}>
+            Submit{" "}
+            <img
+              src={Cart}
+              alt="Cart "
+              style={{ width: "20px", marginLeft: "10px" }}
+            />
+          </button>
+        ) : (
+          <a href={data.bookPdf} className="aCart">
+            Download{" "}
+          </a>
+        )}
       </div>
       <ModalCart show={show} handleClose={handleClose} />
     </div>

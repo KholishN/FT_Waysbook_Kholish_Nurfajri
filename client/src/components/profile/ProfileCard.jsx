@@ -17,11 +17,8 @@ function ProfileCard() {
 
   let { data } = useQuery("bookChace", async () => {
     const response = await API.get("/profile");
-    console.log(response.data.data);
     return response.data;
   });
-
-  // console.log(data.data);
 
   return (
     <div className="profTop">
@@ -44,22 +41,22 @@ function ProfileCard() {
           <li className="profile-bio">{state?.user.email}</li>
           <li className="profile-bio-template">Email</li>
           <li className="profile-bio">
-            {data?.data.gender === null ? " - " : data?.data.data?.gender}
+            {data?.data.gender === null ? " - " : data?.data.gender}
           </li>
           <li className="profile-bio-template">Gender</li>
           <li className="profile-bio">
-            {data?.data.phone === null ? " - " : data?.data.data?.phone}
+            {data?.data.phone === null ? " - " : data?.data.phone}
           </li>
           <li className="profile-bio-template">Mobile Phone</li>
           <li className="profile-bio">
-            {data?.data.address === null ? " - " : data?.data.data?.address}
+            {data?.data.address === null ? " - " : data?.data.address}
           </li>
           <li className="profile-bio-template">Address</li>
         </ul>
       </div>
       <div className="profCard-right">
         <img
-          src={data?.data.avatar === null ? Photo : data?.data?.avatar}
+          src={data?.data.avatar === null ? Photo : data?.data.avatar}
           alt="photoo"
         />
         <ModalEdit />

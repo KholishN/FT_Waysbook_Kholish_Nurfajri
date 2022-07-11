@@ -56,12 +56,19 @@ td {
 
 .success {
   color: #0acf83;
+  font-weight: 700;
 }
 
 .pending {
   color: #f7941e;
+  font-weight: 700;
 }
 
 .failed {
   color: #ff0742;
+  font-weight: 700;
+}
+
+.productRow {
+  max-width: 100px;
 }

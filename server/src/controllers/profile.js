@@ -20,13 +20,6 @@ exports.getProfile = async (req, res) => {
       },
     });
 
-    if (data.avatar) {
-      data = {
-        data,
-        avatar: process.env.PATH_FILE_AVA + data.avatar,
-      };
-    }
-
     res.send({
       status: "success",
       data,
@@ -48,7 +41,7 @@ exports.updateProfile = async (req, res) => {
       gender: req?.body?.gender,
       phone: req?.body?.phone,
       address: req?.body?.address,
-      avatar: req?.file?.filename,
+      avatar: process.env.PATH_FILE_AVA + req?.file?.filename,
     };
 
     await profile.update(data, {

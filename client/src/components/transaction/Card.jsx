@@ -1,5 +1,6 @@
 import React from "react";
 import Trash from "../../assets/trash.png";
+import Rupiah from "rupiah-format";
 
 function Card({ item, handleDelete }) {
   return (
@@ -10,7 +11,7 @@ function Card({ item, handleDelete }) {
       <div className="cardCartMiddle">
         <h1>{item?.book.title}</h1>
         <p className="cartAuth">By : {item?.book.author}</p>
-        <p className="cartPrice">Rp.{item?.book.price}</p>
+        <p className="cartPrice">{Rupiah.convert(item?.book.price)}</p>
       </div>
       <div className="cardCartRight">
         <img src={Trash} alt="trash" onClick={() => handleDelete(item.id)} />

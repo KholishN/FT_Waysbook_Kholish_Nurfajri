@@ -42,7 +42,7 @@ const socketIo = (io) => {
 
     socket.on("load customer contact", async () => {
       try {
-        const data = await user.findAll({
+        let data = await user.findAll({
           include: [
             {
               model: profile,
@@ -73,6 +73,8 @@ const socketIo = (io) => {
             role: "customer",
           },
         });
+
+        console.log("-----------------------", data);
 
         socket.emit("customer contact", data);
       } catch (error) {

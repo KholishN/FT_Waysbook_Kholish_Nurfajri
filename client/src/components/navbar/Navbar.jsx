@@ -60,7 +60,9 @@ function Navbar({ modalLogin, modalRegister }) {
   return (
     <nav className="navbar">
       <div className="navLeft">
-        <img src={Logo} alt="Logo" />
+        <Link to={state.user.role === "admin" ? "/list-transaction" : "/"}>
+          <img src={Logo} alt="Logo" />
+        </Link>
       </div>
       {nav}
     </nav>

@@ -1,8 +1,17 @@
 import React from "react";
 import Navbar from "../components/navbar/Navbar";
 import "../style/ListTransaction.css";
+import { useQuery } from "react-query";
+import { API } from "../config/api";
+import Rupiah from "rupiah-format";
 
 function ListTransaction() {
+  let { data: transaction } = useQuery("TransactionsChace", async () => {
+    const response = await API.get("/transactions");
+    return response.data.trx;
+  });
+
+  console.log(transaction);
   return (
     <div className="ltCont">
       <Navbar />
@@ -20,20 +29,37 @@ function ListTransaction() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Nurfajri</td>
-                <td>Novel Bagus</td>
-                <td className="success">Rp.59.000</td>
-                <td className="success">Approve</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Kholish</td>
-                <td>Novel Bagus</td>
-                <td className="pending">Rp.60.000</td>
-                <td className="pending">Pending</td>
-              </tr>
+              {transaction?.map((item, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{item.buyer}</td>
+                    <td className="productRow">{item.product}</td>
+                    <td
+                      className={
+                        item.status === "success"
+                          ? "success"
+                          : item.status === "pending"
+                          ? "pending"
+                          : "failed"
+                      }
+                    >
+                      {Rupiah.convert(item.total)}
+                    </td>
+                    <td
+                      className={
+                        item.status === "success"
+                          ? "success"
+                          : item.status === "pending"
+                          ? "pending"
+                          : "failed"
+                      }
+                    >
+                      {item.status}
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

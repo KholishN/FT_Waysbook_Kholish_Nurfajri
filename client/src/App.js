@@ -24,17 +24,17 @@ function App() {
   const [state, dispatch] = useContext(UserContext);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (state.isLogin === true) {
-  //     navigate("/");
-  //   } else {
-  //     if (state.user.role === "admin") {
-  //       navigate("/list-transaction");
-  //     } else if (state.user.role === "customer") {
-  //       navigate("/");
-  //     }
-  //   }
-  // }, [state]);
+  useEffect(() => {
+    if (state.isLogin === false) {
+      navigate("/");
+    } else {
+      if (state.user.role === "admin") {
+        navigate("/list-transaction");
+      } else if (state.user.role === "customer") {
+        navigate("/");
+      }
+    }
+  }, [state]);
 
   const checkAuth = async () => {
     try {

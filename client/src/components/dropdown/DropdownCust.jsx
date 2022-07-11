@@ -8,6 +8,7 @@ import Cart from "../../assets/Cart.png";
 import Photo from "../../assets/default-photo.png";
 import User from "../../assets/menu-user.png";
 import Complain from "../../assets/menu-complain.png";
+import ComplainAdmin from "../../assets/admin-complain.png";
 import Logout from "../../assets/menu-logout.png";
 import addBook from "../../assets/addBook.png";
 
@@ -42,7 +43,7 @@ function DropdownCust({ logout }) {
 
   const MenuComplain = (
     <Image
-      src={Complain}
+      src={state.user.role === "customer" ? Complain : ComplainAdmin}
       alt="Complain "
       style={{ width: "30px", marginRight: "10px" }}
     />
@@ -76,23 +77,28 @@ function DropdownCust({ logout }) {
 
       <NavDropdown title={UserMenu} id="basic-nav-dropdown">
         <NavDropdown.Item
-          href="/profile"
           className={state.user.role === "customer" ? "navProfile" : "d-none"}
         >
-          {MenuProfile}Profile
+          <Link to="/profile" className="navtext">
+            {MenuProfile}Profile
+          </Link>
         </NavDropdown.Item>
         <NavDropdown.Item
-          href="/add-book"
           className={state.user.role === "admin" ? "navAdmin" : "d-none"}
         >
-          {MenuAddBook}Add Book
+          <Link to="/add-book" className="navtext">
+            {MenuAddBook}Add Book
+          </Link>
         </NavDropdown.Item>
-        <NavDropdown.Item
-          href={
-            state.user.role === "customer" ? "/complain" : "/complain-admin"
-          }
-        >
-          {MenuComplain}Complain
+        <NavDropdown.Item>
+          <Link
+            to={
+              state.user.role === "customer" ? "/complain" : "/complain-admin"
+            }
+            className="navtext"
+          >
+            {MenuComplain}Complain
+          </Link>
         </NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item onClick={logout}>{MenuLogout}Logout</NavDropdown.Item>

@@ -1,15 +1,19 @@
 import React from "react";
-import Cover1 from "../../assets/coverbook1.jpg";
+import { useNavigate } from "react-router-dom";
 
-function ProfileBook() {
+function ProfileBook({ item }) {
+  const navigate = useNavigate();
+  const handleDownload = async () => {
+    return <a href={item?.book.bookPdf}>Download</a>;
+  };
   return (
-    <div className="profBottom">
-      <div className="card-list-book">
-        <img src={Cover1} alt="" />
-        <h1>56 Hari: Perjalanan Kisah</h1>
-        <p>By : Destashya Wdp</p>
-        <button>Download</button>
-      </div>
+    <div className="card-list-book">
+      <img src={item?.book.bookImg} alt="" />
+      <h1>{item?.book.title.substr(0, 30)}</h1>
+      <p>By : {item?.book.author}</p>
+      <a href={item?.book.bookPdf} className="btnDonwoladd">
+        Download
+      </a>
     </div>
   );
 }

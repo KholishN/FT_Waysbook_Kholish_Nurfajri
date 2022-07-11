@@ -81,7 +81,7 @@ exports.getBook = async (req, res) => {
 
     data = {
       ...data,
-      bookPdf: process.env.PATH_FILE_PDF + data.bookPdf,
+      bookPdf: process.env.PATH_FILE_IMG + data.bookPdf,
       bookImg: process.env.PATH_FILE_IMG + data.bookImg,
     };
 
@@ -100,6 +100,7 @@ exports.getBook = async (req, res) => {
 
 exports.addBooks = async (req, res) => {
   try {
+    console.log(req.files[0]);
     let data = await book.create({
       ...req.body,
       bookImg: req.files.bookImg[0].filename,

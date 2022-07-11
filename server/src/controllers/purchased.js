@@ -1,10 +1,10 @@
-const { book, purchasedBook } = require("../../models");
+const { book, purcasedBook } = require("../../models");
 
 exports.getPurchased = async (req, res) => {
   try {
     let dataUser = req.user;
 
-    let purBook = await purchasedBook.findAll({
+    let purBook = await purcasedBook.findAll({
       where: {
         idUser: dataUser.id,
       },
@@ -31,7 +31,7 @@ exports.getPurchased = async (req, res) => {
     );
 
     purBook = purBook.map((item) => {
-      item.book.bookPdf = process.env.PATH_FILE_PDF + item.book.bookPdf;
+      item.book.bookPdf = process.env.PATH_FILE_IMG + item.book.bookPdf;
       item.book.bookImg = process.env.PATH_FILE_IMG + item.book.bookImg;
       return item;
     });
@@ -52,8 +52,9 @@ exports.getOnePurchased = async (req, res) => {
   try {
     let dataUser = req.user;
     let idParams = req.params.id;
+    console.log("=======================", idParams);
 
-    let purBook = await purchasedBook.findOne({
+    let purBook = await purcasedBook.findOne({
       where: {
         idUser: dataUser.id,
         idBook: idParams,

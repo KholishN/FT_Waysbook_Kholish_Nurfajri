@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Rupiah from "rupiah-format";
 
 const CardList = ({ item, state }) => {
   return (
@@ -18,10 +19,10 @@ const CardList = ({ item, state }) => {
           to={state.isLogin ? `/detail-page/` + item.id : "#"}
           className=" nav-link p-0 text-dark"
         >
-          <h1 className="titleBook">{item.title}</h1>
+          <h1 className="titleBook">{item.title.substr(0, 30)}</h1>
         </Link>
         <p className="auth">By : {item.author}</p>
-        <p className="priceBook">{item.price}</p>
+        <p className="priceBook">{Rupiah.convert(item.price)}</p>
       </div>
     </div>
   );

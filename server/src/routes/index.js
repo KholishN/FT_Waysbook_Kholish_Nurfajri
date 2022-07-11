@@ -6,7 +6,6 @@ const {
   addBooks,
   getBooks,
   getBook,
-  deleteBook,
   promoBooks,
   updateBook,
 } = require("../controllers/book.js");

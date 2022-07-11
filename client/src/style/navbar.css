@@ -75,3 +75,8 @@
   color: white;
 }
 /* /navbar Customer */
+
+.navtext {
+  text-decoration: none;
+  color: black;
+}

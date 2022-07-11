@@ -1,5 +1,6 @@
 import React from "react";
 import ModalTransaction from "./ModalTransaction";
+import Rupiah from "rupiah-format";
 
 function Subtotal({ carts, handleBuy }) {
   let resultQty = carts.reduce((a, b) => {
@@ -18,7 +19,7 @@ function Subtotal({ carts, handleBuy }) {
           <p>Qty</p>
         </div>
         <div className="cartLeft-right">
-          <p>{resultPrice}</p>
+          <p>{Rupiah.convert(resultPrice)}</p>
           <p>{resultQty}</p>
         </div>
       </div>
@@ -28,7 +29,7 @@ function Subtotal({ carts, handleBuy }) {
           <p>Total</p>
         </div>
         <div className="cartRight-right">
-          <p className="totalPrice">{resultPrice}</p>
+          <p className="totalPrice">{Rupiah.convert(resultPrice)}</p>
         </div>
       </div>
       <ModalTransaction handleBuy={handleBuy} />

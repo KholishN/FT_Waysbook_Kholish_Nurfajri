@@ -43,13 +43,13 @@ function HomePage() {
         slidesPerView={2.5}
         spaceBetween={20}
       >
-        <SwiperSlide>
-          <div>
-            {promoBooks?.map((item, index) => (
-              <CardSlider item={item} key={index} state={state} />
-            ))}
-          </div>
-        </SwiperSlide>
+        <div>
+          {promoBooks?.map((item, index) => (
+            <SwiperSlide key={index}>
+              <CardSlider item={item} state={state} />
+            </SwiperSlide>
+          ))}
+        </div>
       </Swiper>
       <div className="bottom">
         <div className="warpBottom">

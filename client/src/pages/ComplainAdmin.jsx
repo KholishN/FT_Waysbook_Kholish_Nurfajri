@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { io } from "socket.io-client";
 import { UserContext } from "../context/UserContext";
+import ScrollToBottom from "react-scroll-to-bottom";
 
 import "../style/Complain.css";
 import Navbar from "../components/navbar/Navbar";
@@ -127,29 +128,29 @@ function ComplainAdmin() {
 
     setOnline(false);
   };
-  console.log(contact);
+  console.log(contact?.name);
   return (
     <div className="contCompAdmin">
       <Navbar />
       <h1>Customer Complain</h1>
-      <div className="container">
+      <div className="container ContAdmin">
         <div className="compLeft">
-          {contacts.map((item, index) => (
+          {contacts?.map((item, index) => (
             <div
               className="card-user"
               onClick={() => onClickContact(item)}
               key={index}
             >
-              <img src={item.profile.avatar || User} alt="" />
+              <img src={item?.profile.avatar} alt="" />
               <p>{item.name}</p>
             </div>
           ))}
         </div>
         <div className="compRight">
           <div className="headerAdmin">
-            <img src={contact.profile.avatar || User} alt="" />
+            <img src={contact?.profile.avatar} alt="" />
             <div className="status-head">
-              <p className="nama">{contact.name}</p>
+              <p className="nama">{contact?.name}</p>
               <div className="status-warp">
                 <div className={online ? "dot-online" : "dot-offline"}></div>
                 <p className="status-online">{online ? "online" : "offline"}</p>
@@ -157,25 +158,29 @@ function ComplainAdmin() {
             </div>
           </div>
           <div className="chat-warp">
-            {messages.map((item, index) => (
-              <div key={index}>
-                <div
-                  className={`d-flex py-1 ${
-                    item.idSender === state.user.id
-                      ? "justify-content-end"
-                      : "justify-content-start"
-                  }`}
-                >
+            <ScrollToBottom className="scrollToBottom">
+              {messages.map((item, index) => (
+                <div key={index}>
                   <div
-                    className={
-                      item.idSender === state.user.id ? "chat-me" : "chat-other"
-                    }
+                    className={`d-flex py-1 ${
+                      item.idSender === state.user.id
+                        ? "justify-content-end"
+                        : "justify-content-start"
+                    }`}
                   >
-                    <p>{item.message}</p>
+                    <div
+                      className={
+                        item.idSender === state.user.id
+                          ? "chat-me"
+                          : "chat-other"
+                      }
+                    >
+                      <div className="textt">{item.message}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </ScrollToBottom>
           </div>
           <div className="chat-input-warp">
             <input

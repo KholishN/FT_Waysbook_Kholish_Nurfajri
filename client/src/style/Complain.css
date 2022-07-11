@@ -17,6 +17,10 @@
 .container {
   display: flex;
 }
+
+.ContAdmin {
+  margin-top: 20px;
+}
 .compLeft {
   background-color: #dfdfdf;
   width: 358px;
@@ -137,6 +141,9 @@
 .chat-warp {
   width: 100%;
   height: 460px;
+  padding-left: 20px;
+  padding-right: 5px;
+  padding-top: 20px;
 }
 .chat-input-warp {
   width: 100%;
@@ -196,33 +203,43 @@
   padding: 10px;
   font-weight: 500;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 18px;
   max-width: 400px;
   margin-right: 20px;
 }
 
-.chat-me::before {
+.textt {
+  margin-bottom: 0;
+  max-width: 400px;
+  word-break: break-word;
+}
+
+/* .chat-me::before {
   content: "";
   position: absolute;
-  top: 8px;
+  top: 5px;
   right: -15px;
   border-top: 15px solid transparent;
   border-left: 20px solid white;
   border-bottom: 15px solid transparent;
-}
+} */
 .chat-other {
   position: relative;
   background: white;
   border-radius: 5px;
-  margin-left: 10px;
   padding: 10px;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 18px;
   max-width: 400px;
+  margin-right: 20px;
 }
 
-.chat-other::before {
+.textt {
+  margin-bottom: 0;
+}
+
+/* .chat-other::before {
   content: "";
   position: absolute;
   top: 8px;
@@ -230,4 +247,13 @@
   border-top: 15px solid transparent;
   border-right: 20px solid white;
   border-bottom: 15px solid transparent;
+} */
+
+.scrollToBottom {
+  height: 100%;
+  overflow: hidden;
+}
+
+.scrollToBottom ::-webkit-scrollbar {
+  display: none;
 }
