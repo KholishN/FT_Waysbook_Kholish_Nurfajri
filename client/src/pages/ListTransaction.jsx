@@ -6,12 +6,14 @@ import { API } from "../config/api";
 import Rupiah from "rupiah-format";
 
 function ListTransaction() {
+  const title = "Transactions";
+  document.title = "WaysBook | " + title;
+
   let { data: transaction } = useQuery("TransactionsChace", async () => {
     const response = await API.get("/transactions");
     return response.data.trx;
   });
 
-  console.log(transaction);
   return (
     <div className="ltCont">
       <Navbar />

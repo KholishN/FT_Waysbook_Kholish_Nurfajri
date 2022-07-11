@@ -106,7 +106,6 @@ exports.getBook = async (req, res) => {
 
 exports.addBooks = async (req, res) => {
   try {
-    console.log(req.files[0]);
     let data = await book.create({
       ...req.body,
       bookImg: req.files.bookImg[0].filename,

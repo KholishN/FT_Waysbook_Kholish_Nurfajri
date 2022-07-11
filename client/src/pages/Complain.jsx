@@ -11,6 +11,9 @@ import Send from "../assets/send.png";
 let socket;
 
 function Complain() {
+  const title = "Chat";
+  document.title = "WaysBook | " + title;
+
   const [contact, setContact] = useState({});
   const [messages, setMessages] = useState([]);
   const [timer, setTimer] = useState({});
@@ -18,7 +21,6 @@ function Complain() {
   const [form, setForm] = useState({
     chat: "",
   });
-  // console.log("initime", messages);
 
   const [state] = useContext(UserContext);
 
@@ -77,9 +79,7 @@ function Complain() {
           idSender: item.sender.id,
           message: item.message,
         }));
-        console.log("variable data", data);
 
-        console.log(dataMessages);
         setMessages(dataMessages);
       } else {
         setMessages([]);
@@ -99,7 +99,6 @@ function Complain() {
         setTimer(data);
         form.chat = "";
       }
-      console.log(data.message);
     }
   };
 

@@ -52,7 +52,6 @@ exports.getOnePurchased = async (req, res) => {
   try {
     let dataUser = req.user;
     let idParams = req.params.id;
-    console.log("=======================", idParams);
 
     let purBook = await purcasedBook.findOne({
       where: {

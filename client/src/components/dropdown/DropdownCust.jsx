@@ -1,4 +1,4 @@
-import React, { useContext, useNavigate, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { NavDropdown, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -13,16 +13,16 @@ import Logout from "../../assets/menu-logout.png";
 import addBook from "../../assets/addBook.png";
 
 function DropdownCust({ logout }) {
-  const [state, dispatch] = useContext(UserContext);
-  // const [bubble, setBubble] = useState([]);
+  const [state] = useContext(UserContext);
+  const [bubble, setBubble] = useState([]);
 
-  // useEffect(() => {
-  //   API.get("/carts")
-  //     .then((res) => {
-  //       setBubble(res.data.getCart);
-  //     })
-  //     .catch((err) => console.log("error", err));
-  // });
+  useEffect(() => {
+    API.get("/carts")
+      .then((res) => {
+        setBubble(res.data.getCart);
+      })
+      .catch((err) => console.log("error", err));
+  });
 
   const UserMenu = (
     <Image
@@ -70,9 +70,9 @@ function DropdownCust({ logout }) {
         className={state.user.role === "customer" ? "notification" : "d-none"}
       >
         <img src={Cart} alt="" className="cart" />
-        {/* <span className={bubble?.length === 0 ? "d-none" : "badge"}>
+        <span className={bubble?.length === 0 ? "d-none" : "badge"}>
           {bubble.length}
-        </span> */}
+        </span>
       </Link>
 
       <NavDropdown title={UserMenu} id="basic-nav-dropdown">

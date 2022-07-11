@@ -22,9 +22,8 @@ const CardSlider = ({ item, state }) => {
             "Content-Type": "application/json",
           },
         };
-        const response = await API.post("/cart", { idProduct: id }, config);
+        await API.post("/cart", { idProduct: id }, config);
 
-        console.log(response);
         handleShow();
       }
     } catch (error) {}

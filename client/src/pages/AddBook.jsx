@@ -8,6 +8,9 @@ import "../style/AddBook.css";
 import FormBook from "../components/addBook/formBook";
 
 function AddBook() {
+  const title = "Add Book";
+  document.title = "WaysBook | " + title;
+
   const navigate = useNavigate();
   const [preview, setPreview] = useState(null);
   const [previews, setPreviews] = useState(null);

@@ -140,9 +140,6 @@ exports.notification = async (req, res) => {
   try {
     const statusResponse = await core.transaction.notification(req.body);
 
-    // console.log("------- Notification --------- ✅");
-    // console.log(statusResponse);
-
     const orderId = statusResponse.order_id;
     const transactionStatus = statusResponse.transaction_status;
     const fraudStatus = statusResponse.fraud_status;

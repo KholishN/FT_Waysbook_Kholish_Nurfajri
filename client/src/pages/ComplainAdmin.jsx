@@ -12,6 +12,9 @@ import Send from "../assets/send.png";
 let socket;
 
 function ComplainAdmin() {
+  const title = "Chat";
+  document.title = "WaysBook | " + title;
+
   const [state] = useContext(UserContext);
   const [contact, setContact] = useState(null);
   const [contacts, setContacts] = useState([]);
@@ -70,21 +73,18 @@ function ComplainAdmin() {
   };
 
   const onClickContact = (data) => {
-    console.log(data);
     setContact(data);
     socket.emit("load messages", data.id);
   };
 
   const loadMessages = () => {
     socket.on("messages", (data) => {
-      console.log(data);
       if (data.length > 0) {
         const dataMessages = data.map((item) => ({
           idSender: item.sender.id,
           message: item.message,
           idRecipient: item.recipient.id,
         }));
-        console.log(dataMessages);
         setMessages(dataMessages);
       } else {
         setMessages([]);
@@ -128,7 +128,6 @@ function ComplainAdmin() {
 
     setOnline(false);
   };
-  console.log(contact?.name);
   return (
     <div className="contCompAdmin">
       <Navbar />

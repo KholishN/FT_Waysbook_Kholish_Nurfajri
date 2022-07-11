@@ -10,6 +10,9 @@ import Card from "../components/transaction/Card";
 import Subtotal from "../components/transaction/Subtotal";
 
 function Cart() {
+  const title = "Cart";
+  document.title = "WaysBook | " + title;
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -61,19 +64,16 @@ function Cart() {
           onSuccess: function (result) {
             /* You may add your own implementation here */
 
-            console.log(result);
             setAlerts(true);
             setTimeout(setAlerts, 3000);
           },
           onPending: function (result) {
             /* You may add your own implementation here */
-            console.log(result);
             setAlerts(true);
             setTimeout(setAlerts, 3000);
           },
           onError: function (result) {
             /* You may add your own implementation here */
-            console.log(result);
           },
           onClose: function () {
             /* You may add your own implementation here */

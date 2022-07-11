@@ -2,7 +2,7 @@ import { FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { API } from "../config/api";
 import { useQuery } from "react-query";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 import "swiper/css";
@@ -14,7 +14,9 @@ import CardSlider from "../components/homePage/CardSlider";
 import CardList from "../components/homePage/CardList";
 
 function HomePage() {
-  const [state, dispatch] = useContext(UserContext);
+  document.title = "WaysBook";
+
+  const [state] = useContext(UserContext);
 
   let { data: books } = useQuery("bookssChace", async () => {
     const response = await API.get("/books");

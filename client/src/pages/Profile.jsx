@@ -8,12 +8,14 @@ import { useQuery } from "react-query";
 import { API } from "../config/api";
 
 function Profile() {
+  const title = "Profile";
+  document.title = "WaysBook | " + title;
+
   let { data: purchasedBook } = useQuery("PurchasedBookChace", async () => {
     const response = await API.get("/purchased-books");
     return response.data.purBook;
   });
 
-  console.log(purchasedBook);
   return (
     <div className="profCont">
       <Navbar />

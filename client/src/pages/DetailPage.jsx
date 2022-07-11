@@ -24,7 +24,9 @@ function DetailPage() {
     const response = await API.get("/book/" + id);
     return response.data.data;
   });
-  console.log(book);
+
+  const title = book?.title;
+  document.title = "WaysBook | " + title;
 
   let { data: purchased } = useQuery("purchasedChace", async () => {
     const response = await API.get("/purchased/" + id);

@@ -49,7 +49,6 @@ function ModalEdit() {
     };
 
     const response = await API.patch("/profile", formData, config);
-    console.log(response);
 
     setPreview(null);
     handleClose();
