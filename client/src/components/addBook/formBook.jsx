@@ -13,26 +13,28 @@ function formBook({
   return (
     <div className="formCont">
       <form className="formWarp" onSubmit={handleSubmit}>
-        <div className="ms-4">
-          <img src={preview} alt="" className="previewImg" />
-        </div>
-        <Form.Control
-          type="file"
-          size="md"
-          className="btnfile"
-          name="bookImg"
-          id="add-book-cover"
-          onChange={handleChange}
-          hidden
-        />
-        <label htmlFor="add-book-cover" className="btnfile">
-          Attache Book Cover{" "}
-          <img
-            src={PaperClip}
-            alt="cover"
-            style={{ marginLeft: "10px", width: "15px" }}
+        <div className="warpAddimg">
+          <Form.Control
+            type="file"
+            size="md"
+            className="btnfile "
+            name="bookImg"
+            id="add-book-cover"
+            onChange={handleChange}
+            hidden
           />
-        </label>
+          <label htmlFor="add-book-cover" className="btnfile mt-3">
+            Attache Book Cover{" "}
+            <img
+              src={PaperClip}
+              alt="cover"
+              style={{ marginLeft: "10px", width: "15px" }}
+            />
+          </label>
+          <div className="ms-4">
+            <img src={preview} alt="" className="previewImg" />
+          </div>
+        </div>
         <FloatingLabel controlId="floatingInput" label="Title" className="mb-3">
           <Form.Control
             type="text"

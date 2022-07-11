@@ -4,17 +4,21 @@ const { Op } = require("sequelize");
 exports.promoBooks = async (req, res) => {
   try {
     let data = await book.findAll({
-      attributes: {
-        exclude: ["createdAt", "updatedAt"],
+      where: {
+        price: {
+          [Op.lte]: 55000,
+        },
+        attributes: {
+          exclude: ["createdAt", "updatedAt"],
+        },
       },
-      limit: 2,
     });
 
     data = JSON.parse(JSON.stringify(data));
     data = data.map((item) => {
       return {
         ...item,
-        bookPdf: process.env.PATH_FILE_PDF + item.bookPdf,
+        bookPdf: process.env.PATH_FILE_IMG + item.bookPdf,
         bookImg: process.env.PATH_FILE_IMG + item.bookImg,
       };
     });
